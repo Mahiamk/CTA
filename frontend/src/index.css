@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+}
+
+:root {
+  --viz-key-bg: #eef2ff;
+  --viz-key-active: #6366f1;
+  --viz-key-read: #a5b4fc;
+  --viz-rank-bg: #e0e7ff;
+  --viz-rank-active: #4f46e5;
+  --viz-cell-empty: #f8fafc;
+  --viz-cell-filled: #ffffff;
+  --viz-cell-active: #fde68a;
+  --viz-cell-active-border: #d97706;
+  --viz-cell-col-active: #ddd6fe;
+  --viz-border: #cbd5e1;
+  --viz-text: #0f172a;
+  --viz-flow-line: #94a3b8;
+  --viz-flow-line-active: #6366f1;
+}
+
+.dark {
+  --viz-key-bg: #1e1b4b;
+  --viz-key-active: #818cf8;
+  --viz-key-read: #4338ca;
+  --viz-rank-bg: #312e81;
+  --viz-rank-active: #a5b4fc;
+  --viz-cell-empty: #0f172a;
+  --viz-cell-filled: #1e293b;
+  --viz-cell-active: #f59e0b;
+  --viz-cell-active-border: #fbbf24;
+  --viz-cell-col-active: #4c1d95;
+  --viz-border: #334155;
+  --viz-text: #e2e8f0;
+  --viz-flow-line: #475569;
+  --viz-flow-line-active: #a5b4fc;
+}
+
+:root {
+  --dot-bg: #f1f5f9;
+  --dot-color: rgba(15, 23, 42, 0.14);
+  --dot-size: 1.4px;
+  --dot-gap: 22px;
+}
+
+.dark {
+  --dot-bg: #0a0a0d;
+  --dot-color: rgba(255, 255, 255, 0.14);
+  --dot-size: 1.4px;
+  --dot-gap: 22px;
+}
+
+.bg-dot-grid {
+  background-color: var(--dot-bg);
+  background-image: radial-gradient(circle, var(--dot-color) var(--dot-size), transparent var(--dot-size));
+  background-size: var(--dot-gap) var(--dot-gap);
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--viz-border);
+  border-radius: 9999px;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  70% { transform: scale(1.4); opacity: 0; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+.animate-pulse-ring {
+  animation: pulse-ring 1.6s ease-out infinite;
+}
